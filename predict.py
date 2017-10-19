@@ -205,8 +205,6 @@ def mergeRecordExtra(dict, extraDict):
 			exit()
 		dict[k].mergeExtra(v)
 
-def showFutureRecord(fr):
-	print(fr)
 #
 # Entry point 
 #
