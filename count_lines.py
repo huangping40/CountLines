@@ -40,12 +40,17 @@ if __name__ == "__main__" :
 	if "--path" in sys.argv:
 		path = sys.argv[sys.argv.index('--path') + 1]
 	
+	showdetail = "true"
+	if "--showdetail" in sys.argv:
+		showdetail = sys.argv[sys.argv.index('--showdetail') + 1]
+	
 	# Are there any file extensions we should ignore?
 	endswith = []
 	if "--endswith" in sys.argv:
 		endswith = sys.argv[sys.argv.index('--endswith') + 1].split(",")
 	
-	print "Using path: ", path
+	if showdetail == "true":
+		print "Using path: ", path
 	
 	for root, dirs, files in os.walk(path):
 		for file in files:
@@ -54,8 +59,10 @@ if __name__ == "__main__" :
 				pathToFile = os.path.join(root, file)
 				foo = open(pathToFile, "r").readlines()
 				lines += len(foo)
-				print len(foo), " lines in ", pathToFile
+				if showdetail == "true":
+					print len(foo), " lines in ", pathToFile
 			else:
-				print "Ignoring ", os.path.join(root, file)
+				if showdetail == "true":
+					print "Ignoring ", os.path.join(root, file)
 	
 	print "Total lines: ", lines

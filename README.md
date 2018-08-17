@@ -5,10 +5,11 @@ Go through a directory (and sub-directories) and count the number of lines in ea
 
 ## Usage
 
+
 Example:
+python count_lines.py --endswith go --path ../../hyperledger/fabric/gossip/
 
-python count_lines.py --path /www/sites/ --endswith go,c,java
-
+python count_lines.py --showdetail false --endswith go --path ../../hyperledger/fabric/gossip/
 
 ==============================================
 
